@@ -1,0 +1,12 @@
+{
+    "watchlist": {
+        "VOO": {
+            "country": "string",
+            "market": "string"
+        },
+        "PSEi": {
+            "country": "string",
+            "market": "string"
+        }
+    }
+}
