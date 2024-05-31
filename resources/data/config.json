@@ -1,12 +1,19 @@
 {
-    "watchlist": {
-        "VOO": {
-            "country": "string",
-            "market": "string"
+
+    "user_config": {
+
+        "ui_mode": "dark",
+        "watchlist": {
+            "VOO": {
+                "country": "string",
+                "market": "string"
+            },
+            "PSEi": {
+                "country": "string",
+                "market": "string"
+            }
         },
-        "PSEi": {
-            "country": "string",
-            "market": "string"
-        }
+        "api_key": "JVZL085VYZKHX9SJ"
     }
+    
 }
