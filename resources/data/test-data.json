@@ -1,0 +1,12 @@
+{
+    "VOO": {
+        "last-stock-price": 456.23,
+        "percentage-change": 9.2,
+        "trade-volume": 60
+    },
+    "PSEi": {
+        "last-stock-price": 223.13,
+        "percentage-change": -2.2,
+        "trade-volume": 20
+    }
+}

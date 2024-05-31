@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta name="applicationTitle" content="StockWatch">
+        <meta name="windowSize" content="500 500">
+        <meta name="previewSize" content="500 500">
+        <meta name="windowBorderRadius" content="5">
+        <meta name="windowLocation" content="500 500">
+        <meta name="windowOpacity" content="250">
+        <meta name="topMost" content="true">
+
+        <link rel="stylesheet" href="style.css">
+        <script src="scripts/main-dashboard-script.js"></script>
+    </head>
+    <body onload="initializeWatchlist()">
+        <main>
+            <div class="logo">
+                <img alt="stockwatch logo.png" src="resources/images/stockwatch-logo-dark-mode.png">
+            </div>
+            
+            <div class="stock-selection">
+                <button class="back-button" onclick="previousStock()"><</button>
+                <p class="stock-name" id="stock-name"></p>
+                <button class="forward-button" onclick="nextStock()">></button>
+            </div>
+
+            <!-- Add stock chart and screen for chosen stock -->
+            <div class="stock-chart">
+                <p class="stock-name" id="stock-name"></p>
+                <p class="last-stock-price">223.75</p>
+                <p class="percentage-change">^ 2.3%</p>
+                <p class="trade-volume">35% avgVol</p>
+            </div>
+
+            <div class="stock-screen">
+                <iframe class="stock-view">
+
+                </iframe>
+            </div>
+
+            <div class="ai-analysis-field">
+                <p class="ai-analysis">
+
+                </p>
+                <button type="button" class="generate-analysis">
+                    Generate Analysis
+                </button>
+            </div>
+
+        </main>
+    </body>
+</html>

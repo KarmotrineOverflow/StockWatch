@@ -6,47 +6,119 @@ body {
 
 body h1 {
 
-    text-align: center;
+    align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-.title {
+.logo {
+
+    display: flex;
+    justify-content: center;
+}
+
+.logo > img {
+
+    width: 80%;
+    height: 20%;
+}
+
+.stock-selection {
 
     width: 90%;
     height: 10%;
-    margin: 4px auto;
+    margin: 16px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 30px;
 }
 
-.title > p {
+.stock-selection > p {
 
     font-size: 25px;
 }
 
+.stock-selection button {
+
+    background-color: transparent;
+    width: 32px;
+    border-radius: 100px;
+    border: 2px solid white;
+
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
 .stock-name {
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
 }
 
 .stock-chart {
 
     width: 90%;
     height: 10%;
-    padding: 12px;
     background-color: green;
     margin: 4px auto;
     display: flex;
+    justify-content: space-evenly;
+}
+
+.last-stock-price {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.last-stock-price {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.percentage-change {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.trade-volume {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
 }
 
 .stock-screen {
 
     width: 90%;
-    height: 20%;
+    height: 60%;
     background-color: green;
     margin: 4px auto;
-    display: block;
+    display: flex;
+    justify-content: center;
+}
+
+.stock-view {
+
+    width: 100%;
+}
+
+.ai-analysis-field {
+
+    display: flex;
+    visibility: visible;
+    justify-content: center;
+}
+
+.generate-analysis {
+
+    background-color: white;
+    border-radius: 8px;
+    border: 0px;
+
+    padding: 12px;
+    color: black;
 }
