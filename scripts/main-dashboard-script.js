@@ -2,23 +2,35 @@ let currentWatchlistIndex = 0;
 let watchlistKeys = [];
 let watchlist = new Object;
 
-async function initializeWatchlist() {
+let uiMode = "";
+let apiKey = "";
 
-    var watchlistHeader = new Headers();
-    watchlistHeader.append("Content-Type", "application/json");
+async function initializeApplication() {
+
+    var appHeader = new Headers();
+    appHeader.append("Content-Type", "application/json");
 
     let requestBody = {
 
         method: "GET",
-        headers: watchlistHeader,
+        headers: appHeader,
     };
 
     await fetch("http://localhost/stockWatch/resources/data/config.json", requestBody)
         .then(data => data.json())
-        .then(response => watchlist = response["watchlist"])
-        .catch(error => console.log(error));
+        .then(response => {
 
-    console.log(watchlist);
+            initializeWatchlist(response["user_config"]["watchlist"]);
+            configureUiMode(response["user_config"]["ui_mode"]);
+
+            apiKey = response["user_config"]["api_key"];
+        })
+        .catch(error => console.log(error));
+}
+
+function initializeWatchlist(watchlistObj) {
+
+    watchlist = watchlistObj;
 
     for (let [key, value] of Object.entries(watchlist)) {
 
@@ -28,17 +40,9 @@ async function initializeWatchlist() {
     retrieveStockData();
 }
 
-function retrieveWatchlist(watchlistObj) {
+function configureUiMode(theme) {
 
-    for (let [key, value] of Object.entries(watchlistObj)) {
-
-        let keyStr = String(key);
-        let valueStr = String(value);
-
-        watchlist[keyStr] = valueStr; // WHY IS IT UNDEFINED???
-        // check state of watchlist after for loop
-        // Fix watchlist schema
-    }
+    // sets the background theme of the app WIP
 }
 
 function nextStock() {
