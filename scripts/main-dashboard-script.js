@@ -20,10 +20,9 @@ async function initializeApplication() {
         .then(data => data.json())
         .then(response => {
 
+            apiKey = response["user_config"]["api_key"];
             initializeWatchlist(response["user_config"]["watchlist"]);
             configureUiMode(response["user_config"]["ui_mode"]);
-
-            apiKey = response["user_config"]["api_key"];
         })
         .catch(error => console.log(error));
 }
@@ -40,7 +39,7 @@ function initializeWatchlist(watchlistObj) {
     retrieveStockData();
 }
 
-function configureUiMode(theme) {
+function configureUiMode(theme) /* WIP */ {
 
     // sets the background theme of the app WIP
 }
@@ -84,16 +83,17 @@ function retrieveStockData() {
         headers: requestHeader
     };
 
-    let urlStr = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo";
+    let urlStr = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${currentStock}&apikey=${apiKey}`;
 
-    fetch("http://localhost/stockWatch/resources/data/test-data.json", requestBody)
+    fetch(urlStr, requestBody)
         .then(data => data.json())
         .then(response => {
             
-            displayStockData(response[currentStock]);
+            displayStockData(response["Global Quote"]);
         })
         .catch(error => console.log(error));
 
+    // Display the stock ticker in the widget while its data is being retrieved
     let stockNames = document.getElementsByClassName("stock-name");
     for (let stock of stockNames) {
 
@@ -103,11 +103,26 @@ function retrieveStockData() {
 
 function displayStockData(stockData) {
 
+    /* Quote Schema
+
+    "Global Quote": {
+        "01. symbol": "VOO",
+        "02. open": "481.2400",
+        "03. high": "484.9100",
+        "04. low": "476.4750",
+        "05. price": "484.6200",
+        "06. volume": "5333971",
+        "07. latest trading day": "2024-05-31",
+        "08. previous close": "480.4400",
+        "09. change": "4.1800",
+        "10. change percent": "0.8700%"
+    } */
+
     let lastStockPrice = document.getElementsByClassName("last-stock-price");
     let percentageChange = document.getElementsByClassName("percentage-change");
     let tradeVolume = document.getElementsByClassName("trade-volume");
 
-    lastStockPrice[0].innerHTML = stockData["last-stock-price"];
-    percentageChange[0].innerHTML = stockData["percentage-change"];
-    tradeVolume[0].innerHTML = stockData["trade-volume"];
+    lastStockPrice[0].innerHTML = stockData["05. price"];
+    percentageChange[0].innerHTML = stockData["10. change percent"];
+    tradeVolume[0].innerHTML = stockData["06. volume"];
 }
