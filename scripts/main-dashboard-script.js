@@ -85,8 +85,6 @@ function retrieveStockData() {
 
     let urlStr = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${currentStock}&apikey=${apiKey}`;
 
-    console.log(urlStr2);
-
     fetch(urlStr, requestBody)
         .then(data => data.json())
         .then(response => {
