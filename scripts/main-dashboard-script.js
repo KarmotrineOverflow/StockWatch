@@ -85,7 +85,7 @@ function retrieveStockData() {
 
     let urlStr = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${currentStock}&apikey=${apiKey}`;
 
-    fetch(urlStr, requestBody)
+    fetch("http://localhost/stockWatch/resources/data/test-data.json", requestBody)
         .then(data => data.json())
         .then(response => {
             
@@ -121,8 +121,23 @@ function displayStockData(stockData) {
     let lastStockPrice = document.getElementsByClassName("last-stock-price");
     let percentageChange = document.getElementsByClassName("percentage-change");
     let tradeVolume = document.getElementsByClassName("trade-volume");
+    let trendArrow = document.getElementById("trend-arrow");
+    let trendDirection = stockData["10. change percent"][0];
+    let trendArrowUrl;
 
-    lastStockPrice[0].innerHTML = stockData["05. price"];
+    lastStockPrice[0].innerHTML = "$" + stockData["05. price"];
+
     percentageChange[0].innerHTML = stockData["10. change percent"];
-    tradeVolume[0].innerHTML = stockData["06. volume"];
+    if (trendDirection == "-") {
+
+        trendArrowUrl = "http://localhost/stockWatch/resources/images/stock-arrow-down.png";
+        percentageChange[0].setAttribute("style", "color: red;");
+    } else {
+
+        trendArrowUrl = "http://localhost/stockWatch/resources/images/stock-arrow-up.png";
+        percentageChange[0].setAttribute("style", "color: green;");
+    }
+    trendArrow.setAttribute("src", trendArrowUrl);
+
+    tradeVolume[0].innerHTML = "dVol: " + stockData["06. volume"];
 }
