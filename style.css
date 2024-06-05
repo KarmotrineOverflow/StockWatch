@@ -54,14 +54,15 @@ body h1 {
 .stock-name {
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 600;
+    font-weight: 700;
+    color: black;
 }
 
 .stock-chart {
 
     width: 90%;
-    height: 10%;
-    background-color: green;
+    height: auto;
+    background-color: white;
     margin: 4px auto;
     display: flex;
     justify-content: space-evenly;
@@ -72,18 +73,21 @@ body h1 {
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
+    color: black;
 }
 
 .percentage-change {
 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 600;
+    color: black;
 }
 
 .trade-volume {
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
+    color: black;
 }
 
 .stock-screen {
@@ -116,4 +120,24 @@ body h1 {
 
     padding: 12px;
     color: black;
+}
+
+/*           */
+/* ID Fields */
+/*           */
+
+#percentage-change-field {
+
+    display: flex;
+    align-items: center;
+    max-width: 20%;
+    justify-content: left;
+}
+
+#trend-arrow {
+
+    max-width: 13%;
+    min-width: 13%;
+    height: 15%;
+    margin: 10px;
 }

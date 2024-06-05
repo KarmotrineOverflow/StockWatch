@@ -1,12 +1,14 @@
 {
-    "VOO": {
-        "last-stock-price": 456.23,
-        "percentage-change": 9.2,
-        "trade-volume": 60
-    },
-    "PSEi": {
-        "last-stock-price": 223.13,
-        "percentage-change": -2.2,
-        "trade-volume": 20
+    "Global Quote": {
+        "01. symbol": "VOO",
+        "02. open": "481.2400",
+        "03. high": "484.9100",
+        "04. low": "476.4750",
+        "05. price": "484.6200",
+        "06. volume": "5333971",
+        "07. latest trading day": "2024-05-31",
+        "08. previous close": "480.4400",
+        "09. change": "4.1800",
+        "10. change percent": "0.8700%"
     }
 }
